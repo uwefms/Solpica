@@ -1,0 +1,1 @@
+# Plain Blazor related projects

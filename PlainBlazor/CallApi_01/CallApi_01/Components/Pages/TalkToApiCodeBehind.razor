@@ -1,0 +1,24 @@
+﻿@page "/TalkToApiCodeBehind"
+
+@rendermode InteractiveServer
+
+<!-- Moved to CodeBehind -->
+@* @inject HttpClient Http *@
+
+<h3>File Server API</h3>
+
+<!-- Example: Get Weather Forecast -->
+<button @onclick="GetWeatherForecast">Get Weather Forecast</button>
+
+<ul>
+    @if (weatherForecasts != null)
+    {
+        @foreach (var forecast in weatherForecasts)
+        {
+            <li>
+                <strong>@forecast.Date.ToShortDateString()</strong>:
+                @forecast.Summary (@forecast.TemperatureC°C)
+            </li>
+        }
+    }
+</ul>

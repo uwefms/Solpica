@@ -1,0 +1,150 @@
+@FileServer_HostAddress = https://localhost:7137
+
+###
+
+GET {{FileServer_HostAddress}}/weatherforecast
+Accept: application/json
+X-Api-Key: bubu1
+
+### Testing weatherforecast mit X-Api-Key #######################################################################################################
+
+GET {{FileServer_HostAddress}}/api/file/getalldirs
+Accept: application/json
+X-Api-Key: bubu1
+
+### GetAllDirs #######################################################################################################
+
+GET {{FileServer_HostAddress}}/api/file/getallfilesindirs
+Accept: application/json
+X-Api-Key: bubu1
+
+### GetAllFilesInDirs #######################################################################################################
+
+GET {{FileServer_HostAddress}}/weatherforecast/?ApiKey=bubu2
+Accept: application/json
+
+### Testing weatherforecast -- ?ApiKey=bubu2  ####################################################################################
+
+GET {{FileServer_HostAddress}}/api/file/getallfilesbydir?dir=TestDir
+Accept: application/json
+X-Api-Key: bubu1
+
+### GetAllFilesByDir -- ?dir=TestDir ################################################################################################
+
+GET {{FileServer_HostAddress}}/api/file/download?dir=TestDir&filename=readme.md
+Accept: application/octet-stream
+X-Api-Key: bubu1
+
+### Download md file #######################################################################################################
+
+GET {{FileServer_HostAddress}}/api/file/download?dir=AllFiles&filename=AnmeldebogenRückseite.pdf
+# Accept: application/octet-stream
+Accept: application/pdf
+X-Api-Key: bubu1
+
+### Download pdf file #######################################################################################################
+
+POST {{FileServer_HostAddress}}/api/file/upload/
+Accept: application/json
+X-Api-Key: bubu1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="File"; filename="fam_1.PNG"
+Content-Type: image/png
+
+< F:/PHP/Files/fam_1.PNG
+--boundary
+Content-Disposition: form-data; name="Name"
+
+exampleName
+--boundary
+Content-Disposition: form-data; name="Description"
+
+exampleDescription
+--boundary
+Content-Disposition: form-data; name="Author"
+
+exampleAuthor
+--boundary
+Content-Disposition: form-data; name="FileDir"
+
+Bubu
+--boundary--
+POST {{FileServer_HostAddress}}/api/file/upload
+
+### Upload a file #######################################################################################################
+
+POST {{FileServer_HostAddress}}/api/file/multipleupload
+Accept: application/json
+X-Api-Key: bubu1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="Files"; filename="fam_1.PNG"
+Content-Type: image/png
+
+< F:/PHP/Files/fam_1.PNG
+--boundary
+Content-Disposition: form-data; name="Files"; filename="fam_2.PNG"
+Content-Type: image/png
+
+< F:/PHP/Files/fam_2.PNG
+--boundary
+Content-Disposition: form-data; name="Files"; filename="Anmeldebogen Rückseite.pdf"
+Content-Type: application/pdf
+
+< F:/PHP/Files/Anmeldebogen Rückseite.pdf
+--boundary
+Content-Disposition: form-data; name="Name"
+
+exampleName
+--boundary
+Content-Disposition: form-data; name="Description"
+
+exampleDescription
+--boundary
+Content-Disposition: form-data; name="Author"
+
+exampleAuthor
+--boundary
+Content-Disposition: form-data; name="FileDir"
+
+Bubu1
+--boundary--
+
+### Upload multiple files #######################################################################################################
+
+DELETE {{FileServer_HostAddress}}/api/file/delete
+Accept: application/json
+X-Api-Key: bubu1
+Content-Type: application/json
+
+{
+  "DirName": "AllFiles",
+  "FileName": "bio.PNG"
+}
+
+### Delete file #######################################################################################################
+
+DELETE {{FileServer_HostAddress}}/api/file/deletedir
+Accept: application/json
+X-Api-Key: bubu1
+Content-Type: application/json
+
+{
+  "DirName": "bubu23"
+}
+
+### Delete directory #######################################################################################################
+
+POST {{FileServer_HostAddress}}/api/file/createdir
+Accept: application/json
+X-Api-Key: bubu1
+Content-Type: application/json
+
+{
+  "DirName": "bubu23"
+}
+
+### Create a directory #######################################################################################################
