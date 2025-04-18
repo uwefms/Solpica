@@ -27,10 +27,26 @@
 
     private List<WeatherForecast>? weatherForecasts;
 
+    private readonly string BaseUrl = "https://localhost:7137";
+    // private readonly string BaseUrl = "";
+
+    // create a constructor
+    public TalkToApi()
+    {
+        if (string.IsNullOrEmpty(BaseUrl))
+        {
+			// Read the new host address from WebSrv.txt to keep it dynamic and private
+            BaseUrl = File.ReadAllText(@"c:\dev\WebSrv.txt").Trim();
+        }
+    }
+
+
     private async Task GetWeatherForecast()
     {        
-        // var response = await Http.GetFromJsonAsync<List<WeatherForecast>>("https://pedavdev.de/FileServer/weatherforecast/?ApiKey=bubu2");
-        var response = await Http.GetFromJsonAsync<List<WeatherForecast>>("https://localhost:7137/weatherforecast/?ApiKey=bubu2");
+        // Uncomment the following line to test with a hardcoded URL
+        // var response = await Http.GetFromJsonAsync<List<WeatherForecast>>("https://localhost:7137/weatherforecast/?ApiKey=bubu2");
+
+        var response = await Http.GetFromJsonAsync<List<WeatherForecast>>($"{BaseUrl}/weatherforecast/?ApiKey=bubu2");
 
         weatherForecasts = response!;
     }

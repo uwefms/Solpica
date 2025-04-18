@@ -10,6 +10,8 @@
 <!-- Example: Get Weather Forecast -->
 <button @onclick="GetWeatherForecast">Get Weather Forecast</button>
 
+@* <button @onclick="GetAllDir">Get All Dirs</button> *@
+
 <ul>
     @if (weatherForecasts != null)
     {
@@ -22,3 +24,34 @@
         }
     }
 </ul>
+
+<!-- Display Directory Files in a Table -->
+@if (directoryFiles != null && directoryFiles.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Directory Name</th>
+                <th>File Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var file in directoryFiles)
+            {
+                <tr>
+                    <td>@file.DirName</td>
+                    <td>@file.FileName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (directoryFiles == null)
+{
+    <p>No data available. Click the button to fetch directory files.</p>
+}
+else
+{
+    <p>Loading...</p>
+}
+
