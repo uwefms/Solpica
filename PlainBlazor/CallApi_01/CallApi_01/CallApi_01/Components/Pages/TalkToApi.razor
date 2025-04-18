@@ -29,6 +29,7 @@
 
     private async Task GetWeatherForecast()
     {        
+        // var response = await Http.GetFromJsonAsync<List<WeatherForecast>>("https://pedavdev.de/FileServer/weatherforecast/?ApiKey=bubu2");
         var response = await Http.GetFromJsonAsync<List<WeatherForecast>>("https://localhost:7137/weatherforecast/?ApiKey=bubu2");
 
         weatherForecasts = response!;

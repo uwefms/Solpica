@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36015.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallApi_01", "CallApi_01\CallApi_01\CallApi_01.csproj", "{7B714020-F27C-4179-BCA6-849EB0B89613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallApi_01.Client", "CallApi_01\CallApi_01.Client\CallApi_01.Client.csproj", "{2CDC5692-54E4-4213-8E90-9ADDAFBF680B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B714020-F27C-4179-BCA6-849EB0B89613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B714020-F27C-4179-BCA6-849EB0B89613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B714020-F27C-4179-BCA6-849EB0B89613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B714020-F27C-4179-BCA6-849EB0B89613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDC5692-54E4-4213-8E90-9ADDAFBF680B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDC5692-54E4-4213-8E90-9ADDAFBF680B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDC5692-54E4-4213-8E90-9ADDAFBF680B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDC5692-54E4-4213-8E90-9ADDAFBF680B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB43E0F1-0C8E-4340-A037-B1F5E5070EE4}
+	EndGlobalSection
+EndGlobal
