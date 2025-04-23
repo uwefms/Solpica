@@ -7,10 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Include="Data\TestDataTable.sql" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Syncfusion.Blazor.DataForm" Version="29.1.38" />
 		<PackageReference Include="Syncfusion.Blazor.Navigations" Version="29.1.38" />
 		<PackageReference Include="Syncfusion.Blazor.Themes" Version="29.1.38" />

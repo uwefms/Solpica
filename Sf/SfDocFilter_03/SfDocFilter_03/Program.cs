@@ -29,8 +29,8 @@ namespace SfDocFilter_03
 
 			//---------------------------------------------------------------------------------------------------------------------		
 			// builder.Services.AddDalMock();
-			builder.Services.AddDalSql();			
-			// builder.Services.AddDalSqlite();
+			// builder.Services.AddDalSql();			
+			builder.Services.AddDalSqlite();
 			//---------------------------------------------------------------------------------------------------------------------
 
             var app = builder.Build();
