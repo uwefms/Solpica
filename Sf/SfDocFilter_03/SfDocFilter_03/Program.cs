@@ -36,7 +36,7 @@ namespace SfDocFilter_03
             var app = builder.Build();
 
             // Add Syncfusion Blazor service 29.1.36
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NNaF5cXmBCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWXxcd3RQQ2BYWEF2W0BWYUA=");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("");
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
