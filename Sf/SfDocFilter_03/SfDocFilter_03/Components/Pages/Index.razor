@@ -1,0 +1,27 @@
+﻿@page "/"
+
+@using AppConst
+@using SfDocFilter_03.Components
+
+@layout BlankLayout
+
+@inject NavigationManager UriHelper
+
+@attribute [StreamRendering] /* server-static pages must be streaming */
+
+@code {
+		
+	protected override void OnInitialized()
+	{
+		#pragma warning disable CS0162 // Unreachable code detected
+		if (!Constants.IsMainMenu)	
+		{
+			UriHelper?.NavigateTo("/DataFormGridfilter", true);			
+		}		
+		else if (Constants.IsMainMenu)
+		{
+			UriHelper.NavigateTo("/Home", true);
+		}
+		#pragma warning restore CS0162 // Unreachable code detected
+	}
+}

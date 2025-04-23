@@ -13,9 +13,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plain Blazor", "Plain Blazor", "{7784A950-4F93-45E6-840F-6E7AA61F1249}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sf", "Sf", "{8302A3B3-9261-4A3C-ADA0-EFC463BA7C00}"
-	ProjectSection(SolutionItems) = preProject
-		Sf\README.md = Sf\README.md
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileServer", "Api\FileServer\FileServer\FileServer.csproj", "{2A02D6BE-8747-D353-3022-C6F1527DCAA6}"
 EndProject

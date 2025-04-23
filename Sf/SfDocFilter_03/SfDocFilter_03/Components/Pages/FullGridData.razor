@@ -1,0 +1,116 @@
+﻿@page "/fullGridData"
+
+@rendermode InteractiveServer
+
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Buttons
+
+@using SfDocFilter.Dal
+@using SfDocFilter.BO;
+
+@layout BlankLayout
+@* @layout MainLayout *@
+
+<h1>All Data</h1>
+
+<div>
+@* 
+ 	<button class="btn btn-primary btn-sm" @onclick="CloseWin">Go back</button>
+	<button class="btn btn-primary btn-sm" @onclick="Reload">Load Data</button>
+
+ *@
+
+	<Syncfusion.Blazor.Buttons.SfButton Content="Load Data"
+										CssClass="e-primary"
+										IsPrimary="true"
+										@onclick="Reload">
+	</Syncfusion.Blazor.Buttons.SfButton>
+
+	<Syncfusion.Blazor.Buttons.SfButton Content="Go Back"
+										CssClass="e-secondary"
+										IsPrimary="false"
+										@onclick="CloseWin">
+	</Syncfusion.Blazor.Buttons.SfButton>
+
+</div>
+
+<br />
+
+<h3 style="margin-right: 20px;">Test Data @Info (* = Contains Search)</h3>
+
+<div style="width:calc(100vw - 3rem); height:calc(85vh - 3rem); ">	
+
+	<SfGrid  ID="Grid"
+		DataSource="@OnBaseList"
+		TValue="OnBaseDto"
+		@ref="FullGrid"
+		Locale="en"
+		AllowFiltering="true" 
+		AllowReordering="true" 
+		AllowResizing="true" 
+		AllowGrouping="true" 
+		AllowExcelExport="true" 
+		AllowPdfExport="true"
+		AllowSelection="true"
+		AllowMultiSorting="true" 
+        AllowSorting="true" 
+		EnablePersistence="false"
+		Toolbar="Toolbaritems"			
+        ShowColumnChooser="true"
+        ShowColumnMenu="false"
+        EnableVirtualization="true"            
+        AllowPaging="false"
+		Height="100%" 
+		Width="100%">     
+		  
+		<GridEditSettings AllowAdding="false" AllowEditing="false" AllowDeleting="false" Mode="EditMode.Normal "></GridEditSettings>
+		<GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.FilterBar" Mode="FilterBarMode.Immediate" ImmediateModeDelay="200"></GridFilterSettings>
+
+		<GridEvents TValue="OnBaseDto"
+			OnToolbarClick="ToolbarClick"
+			OnActionComplete="OnActionComplete">
+		</GridEvents>
+
+        <GridColumns>
+
+			<GridColumn Field=@nameof(OnBaseDto.TestDataId) HeaderText="Id" IsPrimaryKey="true" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Right" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.First_name) HeaderText="First Name" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Last_name) HeaderText="Last Name" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Birth_date) HeaderText="Birth date" Format="d" Type="Syncfusion.Blazor.Grids.ColumnType.Date" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Right" AutoFit="true"></GridColumn>			
+			<GridColumn Field=@nameof(OnBaseDto.Full_name) HeaderText="Fullname *" FilterSettings="@Contains" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Gender) HeaderText="Gender" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+
+			<GridColumn Field=@nameof(OnBaseDto.Nationality) HeaderText="Nationality" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Occupation) HeaderText="Occupation *" FilterSettings="@Contains" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Marital_status) HeaderText="Marital_status" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Street_address) HeaderText="Street_address" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.City) HeaderText="City" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.State) HeaderText="State" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Country) HeaderText="Country" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+
+			<GridColumn Field=@nameof(OnBaseDto.Postal_code) HeaderText="Postal_code" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Phone_number) HeaderText="Phone_number" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Email) HeaderText="Email" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.First_name1) HeaderText="First Name1" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Last_name1) HeaderText="Last Name1" FilterSettings="@StartsWith" AutoFit="true" Visible="false"></GridColumn>
+
+			<GridColumn Field=@nameof(OnBaseDto.Document_type) HeaderText="Document_type" FilterSettings="@StartsWith" AutoFit="true"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Issue_date) HeaderText="Issue_date" Format="d" Type="Syncfusion.Blazor.Grids.ColumnType.Date" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Right" AutoFit="true" Visible="false"></GridColumn>
+			<GridColumn Field=@nameof(OnBaseDto.Expiry_date) HeaderText="Expiry_date" Format="d" Type="Syncfusion.Blazor.Grids.ColumnType.Date" TextAlign="Syncfusion.Blazor.Grids.TextAlign.Right" AutoFit="true" Visible="false"></GridColumn>
+
+        </GridColumns>
+    </SfGrid>	
+
+</div>
+
+
+<style>
+
+	/* marking certain cells */
+    .e-grid .e-gridcontent .e-rowcell.check {
+        color: red;
+    }
+
+</style>
+
+
