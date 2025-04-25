@@ -3,7 +3,7 @@
 // using Microsoft.AspNetCore.Http.HttpResults;
 // using Syncfusion.Blazor.DataForm;
 
-namespace SfDocFilter_03.Dal.Models
+namespace SfDocFilter.Dal.Models
 {
     public class OrderDetails
     {

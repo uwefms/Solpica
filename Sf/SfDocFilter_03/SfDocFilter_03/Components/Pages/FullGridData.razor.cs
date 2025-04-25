@@ -20,7 +20,8 @@ namespace SfDocFilter_03.Components.Pages
 		[Inject] IOnBaseDal? OnBaseDal { get; set; }
 
 
-		public List<OnBaseDto>? OnBaseList { get; set; } 
+		// public List<OnBaseDto>? OnBaseList { get; set; } 
+		public IEnumerable<OnBaseDto>? OnBaseList { get; set; } 
 
 
 		private List<Object> Toolbaritems = new List<Object>() {  "ExcelExport"
@@ -97,9 +98,9 @@ namespace SfDocFilter_03.Components.Pages
 		{
 			var onBaseList = new OnBaseList(OnBaseDal);
 
-			OnBaseList = await onBaseList.GetOnBaseListAsync(null);
+			OnBaseList = await onBaseList.GetOnBaseListAsync("");
 
-			Info = OnBaseList.Count.ToString() + " Records ";
+			Info = OnBaseList.Count().ToString() + " Records ";
 								
 		} // end
 

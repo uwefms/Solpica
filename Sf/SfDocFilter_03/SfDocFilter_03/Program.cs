@@ -3,6 +3,7 @@ using SfDocFilter.Configuration;
 using SfDocFilter_03.Components;
 
 using Syncfusion.Blazor;
+using Syncfusion.Blazor.Popups;
 
 namespace SfDocFilter_03
 {
@@ -26,6 +27,9 @@ namespace SfDocFilter_03
 
 			// Add Syncfusion Blazor service
 			builder.Services.AddSyncfusionBlazor();
+
+			// Add Syncfusion Blazor service 29.1.36
+			builder.Services.AddScoped<SfDialogService>();
 
 			//---------------------------------------------------------------------------------------------------------------------		
 			// builder.Services.AddDalMock();

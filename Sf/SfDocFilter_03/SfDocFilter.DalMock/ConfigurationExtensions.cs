@@ -10,13 +10,7 @@ namespace SfDocFilter.Configuration
 	{
 		public static void AddDalMock(this IServiceCollection services)
 		{
-			services.AddTransient<IOnBaseDal, OnBaseDal>();
-
-
-			//services.AddTransient<IUserDal, UserDal>();
-			//services.AddTransient<ILookupDal, LookupDal>();
-			//services.AddTransient<IKisDal, KisDal>();
-			//services.AddTransient<IMailService, MailService>();
+			services.AddTransient<IOnBaseDal, OnBaseDal>();					
 
 			AppConst.Constants.DataModel = "Mock-Db";
 

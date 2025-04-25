@@ -25,6 +25,16 @@ namespace SfDocFilter.BO
 			return oRet;
 		}
 
+		public async Task<List<OnBaseDto>> GetOnBaseListAsync(FilterDto? oFilter)
+		{
+			List<OnBaseDto> oRet = new List<OnBaseDto>();
+			if (OnBaseDal != null)
+			{
+				oRet = (await OnBaseDal.GetOnBaseListAsync(oFilter)).ToList();
+			}
+			return oRet;
+		}
+
 		//public void AddItem(OnBaseDto item)
 		//{
 		//	Items.Add(item);
